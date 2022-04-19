@@ -1,9 +1,89 @@
+// const randomWords = ["designer", "doctor", "engineer", "programmer"]
+
+
+
+
+// let randomItem = "";
+// let clicked =[];   
+// let result = ""; 
+// let mistakes = 0;           
+
+// function choseRandomItem(){
+//     randomItem = randomWords[Math.floor(Math.random()*randomWords.length)];
+//     document.querySelector("#letters").addEventListener("click", buttonHandler);  
+//     window.addEventListener("keydown", keyHandler)      
+//     console.log(randomItem);
+// }
+
+// function setUnderScore(){
+//    let splitedWord = randomItem.split("");
+//    let mappedWord = splitedWord.map(letter => (clicked.indexOf(letter)>=0 ? letter : "_"));
+//    result = mappedWord.join(""); 
+        
+//    document.getElementById("clue").innerHTML = `<p>${result}</p>`;
+//    console.log(result)
+     
+// }
+
+
+// function checkIfWin(){
+//     if(randomItem === result){
+//         document.getElementById("gameover").querySelector("p").style.display = "block";
+//         document.getElementById("image").querySelector("img").src = "./assest/winner.png";
+//     }
+// }
+// function checkIflost() {
+//     if (mistakes === 6) {
+//         document.getElementById("gameover").querySelector("p").style.display = "block";
+//         document.getElementById("clue").innerHTML = `<p>Random word is: ${randomItem}</p>`
+//     }
+// }
+
+// function updateHangmanPicture() {
+//  const image = document.getElementById("image").querySelector("img")
+//  image.src = `./assest/hangman${mistakes}.png`;
+ 
+// }
+// function letterHandler(letter){
+//    letter = letter.toLowerCase();
+//    clicked.indexOf(letter) === -1 ? clicked.push(letter) : null;      
+//    document.getElementById(letter.toUpperCase()).className = "used"; 
+//    if(randomItem.indexOf(letter) >= 0){
+//      setUnderScore();
+//      checkIfWin();      
+//    }
+   
+//    else if(itemRandom .indexOf(letter) === -1){
+//        mistakes ++;     
+//        checkIflost(); 
+//        updateHangmanPicture();             
+//    }
+   
+//     }
+ 
+// function buttonHandler(event){
+    
+//     letterHandler(event.target.id)
+
+// }
+
+// function keyHandler(event){
+    
+//     letterHandler(event.target.id)
+
+// }
+// function keyHandler(event) {
+//     letterHandler(event.key)
+// }
+
+// choseRandomItem();
+// setUnderScore();       
 const randomWords = ["designer", "doctor", "engineer", "programmer"]
 
 
 
 
-let itemRandon = "";
+let itemRandom = "";
 let clicked =[];   
 let result = ""; 
 let mistakes = 0;           
@@ -25,7 +105,7 @@ function setUnderScore(){
 }
 
 function checkIfWin(){
-    if( itemRandon === result){
+    if( itemRandom === result){
         document.getElementById("gameover").querySelector("p").style.display = "block";
         document.getElementById("image").querySelector("img").src = "./assest/winner.png";
     }
@@ -33,7 +113,7 @@ function checkIfWin(){
 function checkIflost() {
     if (mistakes === 6) {
         document.getElementById("gameover").querySelector("p").style.display = "block";
-        document.getElementById("clue").innerHTML = `<p>Random word is: ${itemRandon}</p>`
+        document.getElementById("clue").innerHTML = `<p>Random word is: ${itemRandom}</p>`
     }
 }
 
@@ -74,4 +154,4 @@ function keyHandler(event) {
 }
 
 choseRandomItem();
-setUnderScore();       
+setUnderScore(); 
