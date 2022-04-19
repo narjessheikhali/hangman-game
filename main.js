@@ -8,7 +8,8 @@ let mistakes = 0;
 
 function choseRandomItem(){
     itemRandom = randomWords[Math.floor(Math.random()*randomWords.length)];
-    document.querySelector("#letters").addEventListener("click", buttonHandler);        
+    document.querySelector("#letters").addEventListener("click", buttonHandler);  
+    window.addEventListener("keydown", keyHandler)      
     console.log(itemRandom);
 }
 
@@ -74,5 +75,9 @@ function keyHandler(event){
     letterHandler(event.target.id)
 
 }
+function keyHandler(event) {
+    letterHandler(event.key)
+}
+
 choseRandomItem();
 setUnderScore();       
