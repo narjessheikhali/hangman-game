@@ -3,7 +3,8 @@ const randomWords = ["designer", "doctor", "engineer", "programmer"]
 
 let itemRandon = "";
 let clicked =[];   
-let result = "";    
+let result = ""; 
+let mistakes = 0;           
 
 function choseRandomItem(){
     itemRandom = randomWords[Math.floor(Math.random()*randomWords.length)];
@@ -22,10 +23,26 @@ function setUnderScore(){
 
 function checkIfWin(){
     if( itemRandon === result){
-        document.getElementById("gameover").querySelector("p").style.display = "block";       
+        document.getElementById("gameover").querySelector("p").style.display = "block";
         document.getElementById("image").querySelector("img").src = "./assest/winner.png";
+
+        // document.getElementById("gameover").querySelector("p").style.display = "block";       
+        // document.getElementById("image").querySelector("img").src = "./assest/winner.png";
     }
 }
+function checkIflost() {
+    if (mistakes === 6) {
+        document.getElementById("gameover").querySelector("p").style.display = "block";
+        document.getElementById("clue").innerHTML = `<p>Random word is: ${randomItem}</p>`
+    }
+}
+
+function updateHangmanPicture() {
+    const image = document.getElementById("image").querySelector("img");
+    image.src = `assest/hangman${mistakes}.png`
+}
+
+
 
 
 function letterHandler(letter){
@@ -38,8 +55,11 @@ function letterHandler(letter){
    }
    
    else if(itemRandom .indexOf(letter) === -1){
-
+       mistakes ++;     
+       checkIflost(); 
+       updateHangmanPicture();             
    }
+   
     }
  
 
