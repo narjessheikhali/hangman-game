@@ -1,6 +1,8 @@
 const randomWords = ["designer", "doctor", "engineer", "programmer"]
 
 
+
+
 let itemRandon = "";
 let clicked =[];   
 let result = ""; 
@@ -26,15 +28,12 @@ function checkIfWin(){
     if( itemRandon === result){
         document.getElementById("gameover").querySelector("p").style.display = "block";
         document.getElementById("image").querySelector("img").src = "./assest/winner.png";
-
-        // document.getElementById("gameover").querySelector("p").style.display = "block";       
-        // document.getElementById("image").querySelector("img").src = "./assest/winner.png";
     }
 }
 function checkIflost() {
     if (mistakes === 6) {
         document.getElementById("gameover").querySelector("p").style.display = "block";
-        document.getElementById("clue").innerHTML = `<p>Random word is: ${randomItem}</p>`
+        document.getElementById("clue").innerHTML = `<p>Random word is: ${itemRandon}</p>`
     }
 }
 
@@ -42,10 +41,6 @@ function updateHangmanPicture() {
     const image = document.getElementById("image").querySelector("img");
     image.src = `assest/hangman${mistakes}.png`
 }
-
-
-
-
 function letterHandler(letter){
    letter = letter.toLowerCase();
    clicked.indexOf(letter) === -1 ? clicked.push(letter) : null;      
@@ -63,7 +58,6 @@ function letterHandler(letter){
    
     }
  
-
 function buttonHandler(event){
     
     letterHandler(event.target.id)
